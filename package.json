@@ -19,6 +19,7 @@
   "dependencies": {
     "@nuxt/ui": "^2.11.1",
     "@pinia/nuxt": "^0.5.1",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "zod": "^3.22.4"
   }
 }

@@ -7,5 +7,9 @@ if (!user.value) {
 }
 </script>
 <template>
-    <h1>Index</h1>
+    <div class="grid gap-10">
+        <TransactionsPeriodCards />
+        <TransactionsCreateSection />
+        <TransactionsTable />
+    </div>
 </template>

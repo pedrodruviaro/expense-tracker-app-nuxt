@@ -1,7 +1,7 @@
 export function useAuthActions() {
     const supabase = useSupabaseClient();
     const router = useRouter();
-    const { notifyError, notifySuccess } = useNotification();
+    const { notifyError, notifySuccess } = useNotifications();
     const pending = ref(false);
 
     async function login() {

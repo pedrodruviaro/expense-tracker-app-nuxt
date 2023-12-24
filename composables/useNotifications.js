@@ -1,4 +1,4 @@
-export function useNotification() {
+export function useNotifications() {
     const toast = useToast();
 
     const errorIcon = "i-heroicons-exclamation-circle";
@@ -6,7 +6,7 @@ export function useNotification() {
 
     function notify(icon, title, message = "", color) {
         toast.add({
-            title: title || "Something went wrong",
+            title: title || "",
             description: message,
             icon: icon || "",
             color: color || "gray",
