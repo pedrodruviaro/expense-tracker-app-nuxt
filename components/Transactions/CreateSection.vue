@@ -1,5 +1,12 @@
 <script setup>
 const isOpen = ref(false);
+const { getTransactions } = useTransactionsStore();
+
+async function handleTransactionUpdates() {
+    isOpen.value = false;
+
+    await getTransactions();
+}
 </script>
 
 <template>
@@ -15,7 +22,7 @@ const isOpen = ref(false);
                     <h2 class="text-xl">Create new</h2>
                 </template>
 
-                <TransactionsForm @completed="isOpen = false" />
+                <TransactionsForm @completed="handleTransactionUpdates" />
             </UCard>
         </UModal>
     </div>

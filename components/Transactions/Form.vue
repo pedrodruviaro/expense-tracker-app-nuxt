@@ -1,7 +1,7 @@
 <script setup>
 import { z } from "zod";
+import { transactionTypeOptions } from "@/constants/transactionTypeOptions";
 
-const transactionTypes = ["United States", "Canada", "Mexico"];
 const categories = ["1", "2"];
 
 const transactionStore = useTransactionsStore();
@@ -23,9 +23,9 @@ const form = ref();
 const formSchema = z.object({
     description: z.string().min(5),
     amount: z.number().positive(),
-    type: z.string().nonempty(),
+    type: z.string(),
     date: z.string(),
-    category: z.string().nonempty(),
+    category: z.string(),
 });
 
 function resetForm() {
@@ -35,7 +35,7 @@ function resetForm() {
     form.value.clear();
 }
 
-async function onSubmit(event) {
+async function onSubmit() {
     const transaction = {
         user_id: user.value.id,
         description: state.value.description,
@@ -72,7 +72,10 @@ async function onSubmit(event) {
 
         <div class="grid gap-4 grid-cols-2">
             <UFormGroup label="Type" name="type">
-                <USelect v-model="state.type" :options="transactionTypes" />
+                <USelect
+                    v-model="state.type"
+                    :options="transactionTypeOptions"
+                />
             </UFormGroup>
 
             <UFormGroup label="Date" name="date">
